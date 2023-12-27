@@ -41,10 +41,6 @@ variable "proxmox_vm_storage_pool" {
     type = string
 }
 
-variable "proxmox_vm_storage_pool_type" {
-    type = string
-}
-
 variable "cores" {
   type    = string
   default = "2"
@@ -127,7 +123,6 @@ source "proxmox-iso" "debian" {
     disk_size         = var.disk_size
     format            = var.disk_format
     storage_pool      = var.proxmox_vm_storage_pool
-    #storage_pool_type = var.proxmox_vm_storage_pool_type   #deprecated
 
     # Create one I/O thread per storage controller, 
     # rather than a single thread for all I/O. 
