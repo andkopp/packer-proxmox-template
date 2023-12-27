@@ -1,6 +1,10 @@
-proxmox_host         = "10.10.0.10:8006"
-proxmox_node         = "pve-01"
-proxmox_api_user     = "root@pam"
-proxmox_api_password = "my secret password"
+proxmox_api_url = "https://pve1.myhomelab:8006/api2/json"  # Hostname or IP address
+proxmox_api_token_id = "packer@pam!packer"  # API Token ID
+proxmox_api_token_secret = "your_secret"
+proxmox_node = "pve1"
 
-iso_file             = "local:iso/debian-11.6.0-amd64-netinst.iso"
+proxmox_iso_storage_pool = "local"   # "truenas-neo"
+proxmox_iso_file = "debian-12.4.0-amd64-netinst.iso"
+proxmox_vm_storage_pool = "local"
+proxmox_vm_storage_pool_type = "zfspool"
+proxmox_vm_id = "910"

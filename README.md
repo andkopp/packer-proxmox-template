@@ -19,9 +19,12 @@ Proxmox Templates provide an easy way to deploy many VMs of the same type, but n
 
 :rotating_light: **IMPORTANT!** :rotating_light:
 
-Do not forget to replace `ssh_authorized_keys` in `cloud.cfg` with your own public keys as otherwise you won't be able to log in to the machine since cloud-init is configured to set the root password to a random one after the template has been built.
+Do not forget to provide your own SSH public keys as otherwise you won't be able to log in to the machine since cloud-init is configured to set the root password to a random one after the template has been built. 
+The user `debian` is a password-less sudo user.
 
-The public SSH keys will added to a password-less sudo user named `debian`.
+There are two options:
+1. Provide your public key for user `debian` in the cloud-init image. Remember to regenerate the image before starting the machine. This is the most flexible option as the keys are not hard-coded. 
+2. Replace `ssh_authorized_keys` in `cloud.cfg` with your own public keys. The public SSH keys will be added to user `debian`.
 
 ## Creating a new VM Template
 
@@ -68,6 +71,8 @@ You can contribute in many ways and not just by changing the code! If you have
 any ideas, just open an issue and tell me what you think.
 
 Contributing code-wise - please fork the repository and submit a pull request.
+
+This project is a fork of Roman Tomjak's [packer-proxmox-template](https://github.com/romantomjak/packer-proxmox-template).
 
 ## License
 
